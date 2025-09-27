@@ -1,4 +1,4 @@
-package com.example.model;
+package com.example.cadplantas.model;
 
 public class CadPlanta {
     private String especie;

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consultar Planta</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container mt-5">
+    <h1>🔍 Consultar Planta</h1>
+
+    <!-- Mensagem de erro caso planta não seja encontrada -->
+    <div th:if="${erro}" class="alert alert-danger" th:text="${erro}"></div>
+
+    <!-- Formulário de consulta -->
+    <form th:action="@{/buscar}" th:object="${cadplanta}" method="post" class="mb-4">
+        <div class="mb-3">
+            <label for="especie" class="form-label">Buscar por Espécie:</label>
+            <input type="text" th:field="*{especie}" id="especie" placeholder="Digite a espécie da planta" class="form-control" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Pesquisar</button>
+        <a th:href="@{/}" class="btn btn-secondary">Voltar</a>
+    </form>
+
+    <!-- Resultado da pesquisa -->
+    <div th:if="${cadplanta != null}">
+        <h3>Resultado:</h3>
+        <p><b>Espécie:</b> <span th:text="${cadplanta.especie}"></span></p>
+        <p><b>Origem:</b> <span th:text="${cadplanta.origem}"></span></p>
+        <p><b>Cuidados:</b> <span th:text="${cadplanta.cuidados}"></span></p>
+        <p><b>Tipos:</b> <span th:text="${cadplanta.tipos}"></span></p>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

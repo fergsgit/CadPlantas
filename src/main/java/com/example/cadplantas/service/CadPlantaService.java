@@ -1,10 +1,10 @@
-package com.example.service;
+package com.example.cadplantas.service;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.stereotype.Service;
-import com.example.model.CadPlanta;
+import com.example.cadplantas.model.CadPlanta;
 
 @Service
 public class CadPlantaService {
@@ -18,11 +18,6 @@ public void salvar(CadPlanta cadplanta) {
 //retorna todas as plantas
 public List<CadPlanta> listarPlantas() {
     return cadplantas;
-}
-
-// Adiciona uma nova planta
-public void adicionarPlanta(CadPlanta planta) {
-    cadplantas.add(planta);
 }
 
 // Remove uma planta pelo índice
